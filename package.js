@@ -12,12 +12,14 @@ Npm.depends({
   'intl': '1.0.0'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.3');
+Package.onUse(function (api) {
+  api.use('react-runtime', 'client');
+  api.use('cosmos:browserify', 'client');
 
-  api.use(['cosmos:browserify@0.5.1'], 'client');
-
-  api.addFiles(['react-intl.browserify.js', 'react-intl.browserify.options.json'], 'client');
+  api.addFiles([
+    'react-intl.browserify.js',
+    'react-intl.browserify.options.json'
+  ], 'client');
 
   api.export('ReactIntl', 'client');
 });
